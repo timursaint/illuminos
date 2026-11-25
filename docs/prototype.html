@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Illuminos — прототипы страниц</title>
+<style>
+    /* Черно-белые каркасы (wireframes): показывают структуру, а не оформление */
+    :root {
+        --bg: #0f0f15;
+        --panel: #171722;
+        --line: #3a3a4c;
+        --line-2: #565670;
+        --muted: #6B7280;
+        --text: #ececf3;
+    }
+    * { box-sizing: border-box; }
+    body {
+        margin: 0; padding: 44px 22px 80px;
+        background: var(--bg); color: var(--text);
+        font: 15px/1.6 "Segoe UI", Arial, sans-serif;
+    }
+    .wrap { max-width: 1180px; margin: 0 auto; }
+    h1 { font-size: 34px; margin: 0 0 6px; letter-spacing: -.02em; }
+    h2 { font-size: 22px; margin: 48px 0 6px; }
+    h3 { font-size: 15px; margin: 0 0 8px; color: #cfcbe4; }
+    .small { color: var(--muted); font-size: 13px; }
+    .lead { color: var(--muted); max-width: 760px; margin: 0 0 20px; }
+
+    /* Каркас страницы */
+    .frame {
+        border: 1px solid var(--line); border-radius: 12px; background: #13131c;
+        padding: 12px; margin-top: 14px;
+    }
+    .b {
+        border: 1px dashed var(--line-2); border-radius: 8px;
+        background: rgba(255,255,255,.03);
+        display: flex; align-items: center; justify-content: center;
+        color: var(--muted); font-size: 12px; text-align: center;
+        padding: 10px; position: relative;
+    }
+    .b--solid { border-style: solid; background: rgba(255,255,255,.06); }
+    .stack { display: grid; gap: 10px; }
+    .row { display: grid; gap: 10px; }
+    .row-5 { grid-template-columns: repeat(5, 1fr); }
+    .row-4 { grid-template-columns: repeat(4, 1fr); }
+    .row-6 { grid-template-columns: repeat(6, 1fr); }
+    .main { display: grid; grid-template-columns: 220px 1fr; gap: 10px; }
+    .poster { aspect-ratio: 2/3; }
+    .poster-wide { aspect-ratio: 16/9; }
+
+    .num {
+        position: absolute; top: -8px; left: -8px;
+        width: 22px; height: 22px; border-radius: 50%;
+        background: #FF6B35; color: #191300;
+        font-size: 12px; font-weight: 800;
+        display: grid; place-items: center;
+    }
+    .legend { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 8px 24px; margin-top: 16px; }
+    .legend div { display: flex; gap: 10px; font-size: 13.5px; color: #d5d1e6; }
+    .legend b { color: #FF6B35; min-width: 20px; }
+
+    .phone { width: 360px; max-width: 100%; }
+    .phone .frame { border-radius: 24px; padding: 10px; }
+    .two-col { display: grid; grid-template-columns: 1fr 360px; gap: 28px; align-items: start; }
+    a { color: #FF6B35; }
+    @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+    <h1>Прототипы страниц Illuminos</h1>
+    <p class="lead">
+        Каркасы (wireframes) главной и типовой страницы тайтла. Показывают иерархию блоков,
+        сетку и поведение на мобильных — до цветового оформления. Пронумерованные блоки
+        описаны в легенде под каждым макетом.
+    </p>
+
+    <h2>1. Главная страница — desktop</h2>
+    <p class="small">Сетка 1280 px, контент в 12 колонок, боковые поля 24 px.</p>
+
+    <div class="frame stack">
+        <!-- Шапка -->
+        <div class="row" style="grid-template-columns: 160px 1fr 260px 180px">
+            <div class="b b--solid" style="position:relative"><span class="num">1</span>Логотип</div>
+            <div class="b" style="position:relative"><span class="num">2</span>Меню: Главная · Фильмы · Сериалы · Подписка</div>
+            <div class="b" style="position:relative"><span class="num">3</span>Поиск</div>
+            <div class="b" style="position:relative"><span class="num">4</span>Войти / Регистрация</div>
+        </div>
+
+        <!-- Hero -->
+        <div class="b poster-wide" style="position:relative;min-height:220px">
+            <span class="num">5</span>
+            HERO: фон-кадр + логотип тайтла, рейтинг, жанры, описание, кнопки «Смотреть», «Трейлер», «В избранное»,
+            миниатюры переключения
+        </div>
+
+        <!-- Новинки -->
+        <div class="b" style="justify-content:flex-start;position:relative"><span class="num">6</span>Заголовок «Новинки» + ссылка «Смотреть все»</div>
+        <div class="row row-5">
+            <div class="b poster">Карточка</div><div class="b poster">Карточка</div>
+            <div class="b poster">Карточка</div><div class="b poster">Карточка</div>
+            <div class="b poster">Карточка</div>
+        </div>
+
+        <!-- Популярное -->
+        <div class="b" style="justify-content:flex-start;position:relative"><span class="num">7</span>Заголовок «Популярное» + сетка</div>
+        <div class="row row-5">
+            <div class="b poster">Карточка</div><div class="b poster">Карточка</div>
+            <div class="b poster">Карточка</div><div class="b poster">Карточка</div>
+            <div class="b poster">Карточка</div>
+        </div>
+
+        <!-- Категории -->
+        <div class="b" style="justify-content:flex-start;position:relative"><span class="num">8</span>Категории: 8 плиток с иконками</div>
+        <div class="row row-4">
+            <div class="b" style="height:64px">Боевик</div><div class="b" style="height:64px">Комедия</div>
+            <div class="b" style="height:64px">Драма</div><div class="b" style="height:64px">Фэнтези</div>
+        </div>
+
+        <!-- Рекомендации -->
+        <div class="b" style="justify-content:flex-start;position:relative"><span class="num">9</span>«Рекомендуем вам» — персональная подборка</div>
+        <div class="row row-6">
+            <div class="b poster">Карточка</div><div class="b poster">Карточка</div><div class="b poster">Карточка</div>
+            <div class="b poster">Карточка</div><div class="b poster">Карточка</div><div class="b poster">Карточка</div>
+        </div>
+
+        <!-- Промо -->
+        <div class="b" style="position:relative;min-height:84px"><span class="num">10</span>Промо-баннер подписки + кнопка «Выбрать тариф»</div>
+
+        <!-- Подвал -->
+        <div class="row" style="grid-template-columns: 1.6fr 1fr 1fr 1fr;position:relative">
+            <div class="b" style="position:relative"><span class="num">11</span>О сервисе · соцсети</div>
+            <div class="b">Каталог</div>
+            <div class="b">Сервис</div>
+            <div class="b">Контакты</div>
+        </div>
+        <div class="b">© Illuminos · способы оплаты</div>
+    </div>
+
+    <div class="legend">
+        <div><b>1</b> Логотип возвращает на главную, фиксированная шапка</div>
+        <div><b>2</b> Основная навигация + «Мой Illuminos» после входа</div>
+        <div><b>3</b> Живой поиск с подсказками без перезагрузки</div>
+        <div><b>4</b> Гость видит «Войти / Регистрация», пользователь — аватар и меню</div>
+        <div><b>5</b> Hero на 76% экрана: до 5 тайтлов, переключение миниатюрами</div>
+        <div><b>6</b> Горизонтальная лента новинок со скроллом и snap</div>
+        <div><b>7</b> Сетка популярного 4–5 карточек в ряд</div>
+        <div><b>8</b> Категории с SVG-иконками и счётчиком тайтлов</div>
+        <div><b>9</b> Рекомендации: по жанрам избранного и истории</div>
+        <div><b>10</b> Промо-блок подписки с акцентом на CTA</div>
+        <div><b>11</b> Подвал: навигация, контакты, платёжные системы</div>
+    </div>
+
+    <h2>2. Типовая страница тайтла — desktop</h2>
+
+    <div class="frame stack">
+        <div class="row" style="grid-template-columns: 160px 1fr 260px 180px">
+            <div class="b b--solid">Логотип</div>
+            <div class="b">Меню</div>
+            <div class="b">Поиск</div>
+            <div class="b">Пользователь</div>
+        </div>
+
+        <div class="main">
+            <div class="stack">
+                <div class="b poster" style="position:relative"><span class="num">1</span>Постер 2:3</div>
+                <div class="b" style="height:48px">Оценка пользователей</div>
+            </div>
+            <div class="stack">
+                <div class="b" style="justify-content:flex-start;position:relative;padding:16px;min-height:180px">
+                    <span class="num">2</span>
+                    Заголовок, оригинальное название, чипы (год, жанры, длительность, возраст),
+                    описание, кнопки «Смотреть», «Трейлер», «♥», факты: режиссёр, актёры, страна
+                </div>
+                <div class="row" style="grid-template-columns: 1fr 1fr">
+                    <div class="b" style="position:relative;min-height:120px"><span class="num">3</span>Блок оценок: средний балл + звёзды 1–10</div>
+                    <div class="b" style="position:relative;min-height:120px"><span class="num">4</span>Трейлер 16:9 с кнопкой play</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="b" style="position:relative;min-height:70px"><span class="num">5</span>Сезоны и серии (только для сериалов): аккордеон</div>
+        <div class="b" style="position:relative;min-height:70px"><span class="num">6</span>Актёры и режиссёры: чипы с инициалами</div>
+        <div class="b" style="position:relative;min-height:90px"><span class="num">7</span>Отзывы зрителей + форма отзыва</div>
+        <div class="b" style="position:relative"><span class="num">8</span>Похожие фильмы/сериалы — лента карточек</div>
+        <div class="b">Подвал</div>
+    </div>
+
+    <div class="legend">
+        <div><b>1</b> Постер с тенью, слева от основного контента</div>
+        <div><b>2</b> Ключевая информация и действия — первый экран</div>
+        <div><b>3</b> Оценка Кинопоиска + оценка зрителей + своя оценка</div>
+        <div><b>4</b> Трейлер открывается в модальном плеере</div>
+        <div><b>5</b> Сезоны раскрываются, внутри — список серий</div>
+        <div><b>6</b> Режиссёр выделен золотым чипом</div>
+        <div><b>7</b> Отзывы привязаны к пользователю, одна оценка на тайтл</div>
+        <div><b>8</b> Похожие по общим жанрам и рейтингу</div>
+    </div>
+
+    <h2>3. Мобильная версия — 390 px</h2>
+
+    <div class="two-col">
+        <div class="frame stack" style="max-width:420px">
+            <div class="row" style="grid-template-columns: 1fr auto auto">
+                <div class="b b--solid">Логотип</div>
+                <div class="b">♥</div>
+                <div class="b">☰</div>
+            </div>
+            <div class="b">Поиск на всю ширину</div>
+            <div class="b poster-wide" style="min-height:200px">HERO: логотип, метаданные, 2 кнопки</div>
+            <div class="b" style="justify-content:flex-start">Новинки · горизонтальный скролл</div>
+            <div class="row" style="grid-template-columns: 1fr 1fr">
+                <div class="b poster">Карточка</div><div class="b poster">Карточка</div>
+            </div>
+            <div class="b" style="justify-content:flex-start">Категории 2×4</div>
+            <div class="row" style="grid-template-columns: 1fr 1fr">
+                <div class="b" style="height:52px">Драма</div><div class="b" style="height:52px">Комедия</div>
+            </div>
+            <div class="b">Промо подписки</div>
+            <div class="b">Подвал (в одну колонку)</div>
+        </div>
+
+        <div>
+            <h3>Что меняется на мобильных</h3>
+            <ul style="color:#d5d1e6;font-size:14px;padding-left:18px;line-height:1.8">
+                <li>Меню скрывается в бургер, открывается на весь экран</li>
+                <li>Поиск переносится на отдельную строку под шапкой</li>
+                <li>Hero уменьшается: логотип до 74 px, описание в 4 строки</li>
+                <li>Ленты карточек скроллятся горизонтально (46% ширины экрана)</li>
+                <li>Категории и сетки — 2 колонки</li>
+                <li>Тарифы — одна колонка</li>
+                <li>Кнопки становятся на всю ширину, минимальная зона нажатия 44×44</li>
+                <li>Таблицы админки получают горизонтальный скролл</li>
+            </ul>
+
+            <h3 style="margin-top:24px">Контрольные точки</h3>
+            <p class="small" style="margin:0">
+                360–576 px — мобильные · 577–992 px — планшеты · 993–1280 px — ноутбуки · 1281+ — десктоп.
+            </p>
+        </div>
+    </div>
+
+    <p class="small" style="margin-top:48px">
+        ← <a href="../index.php">На сайт</a> · <a href="palette.html">Палитра</a> ·
+        <a href="mockup.html">Дизайн-макеты</a>
+    </p>
+</div>
+</body>
+</html>

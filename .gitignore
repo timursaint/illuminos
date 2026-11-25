@@ -1,0 +1,32 @@
+# Служебные файлы и локальные данные
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.log
+
+# Загруженные пользователями файлы (кроме заглушки)
+uploads/avatars/*
+uploads/posters/*
+!uploads/avatars/.gitkeep
+!uploads/posters/.gitkeep
+
+# Секреты и локальные настройки
+.env
+.env.*
+config/local.php
+
+# Тяжёлые медиафайлы: демо-трейлеры в репозиторий не коммитим
+assets/video/*
+!assets/video/.gitkeep
+
+# Архивы и временные файлы
+*.tmp
+*.bak
+*.zip
+*.sql.gz
+
+# Документы практики и резервные копии скриншотов в репозиторий не входят
+*.docx
+~$*
+docs/screenshots-old/

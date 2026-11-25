@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Illuminos — дизайн-макеты (desktop / tablet / mobile)</title>
+<style>
+    /* Живые макеты: внутри рамок устройств открыт реальный сайт.
+       Масштаб подгоняется скриптом, чтобы макет выглядел как картинка. */
+    :root { --bg:#0B0B0F; --surface:#15151D; --line:rgba(255,255,255,.12); --muted:#6B7280; --accent:#FF6B35; }
+    * { box-sizing: border-box; }
+    body {
+        margin: 0; padding: 44px 22px 80px; background: var(--bg); color: #FFFFFF;
+        font: 15px/1.6 "Segoe UI", Arial, sans-serif;
+    }
+    .wrap { max-width: 1180px; margin: 0 auto; }
+    h1 { font-size: 34px; margin: 0 0 6px; letter-spacing: -.02em; }
+    h2 { font-size: 22px; margin: 44px 0 4px; }
+    .lead { color: var(--muted); max-width: 760px; margin: 0 0 8px; }
+    .small { color: var(--muted); font-size: 13px; }
+    a { color: var(--accent); }
+
+    /* Рамка устройства */
+    .device {
+        border: 1px solid var(--line); border-radius: 18px; padding: 12px;
+        background: linear-gradient(160deg, #1b1b28, #101018);
+        margin-top: 16px;
+    }
+    .device__bar {
+        display: flex; align-items: center; gap: 8px;
+        padding: 0 6px 10px; color: var(--muted); font-size: 12px;
+    }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: #3a3a4c; }
+    .screen {
+        position: relative; overflow: hidden; border-radius: 10px;
+        background: #000; border: 1px solid rgba(255,255,255,.08);
+    }
+    .screen iframe {
+        position: absolute; top: 0; left: 0; border: 0;
+        transform-origin: top left; background: #0B0B0F;
+    }
+
+    .tablet { max-width: 620px; }
+    .phone  { max-width: 320px; }
+    .duo { display: grid; grid-template-columns: 620px 320px; gap: 28px; align-items: start; }
+    @media (max-width: 1000px) { .duo { grid-template-columns: 1fr; } }
+
+    .notes { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px,1fr)); gap: 12px; margin-top: 20px; }
+    .note { padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+    .note b { display: block; margin-bottom: 4px; }
+    .note span { color: var(--muted); font-size: 13.5px; }
+
+    table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 14px; }
+    th, td { text-align: left; padding: 9px 10px; border-bottom: 1px solid var(--line); }
+    th { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <h1>Дизайн-макеты Illuminos</h1>
+    <p class="lead">
+        Живые макеты главной и типовой страницы в трёх разрешениях. Внутри рамок открыт
+        реальный сайт, поэтому макет совпадает с вёрсткой один в один — это адаптивная
+        версия, а не картинка.
+    </p>
+    <p class="small">
+        Управление: <a href="../index.php" target="_blank">открыть сайт отдельно</a> ·
+        <a href="palette.html">палитра</a> · <a href="prototype.html">прототипы</a>
+    </p>
+
+    <h2>1. Десктоп — 1440 × 900</h2>
+    <p class="small">Главная страница: hero, новинки, популярное, категории, рекомендации.</p>
+    <div class="device" data-device data-width="1440" data-height="900">
+        <div class="device__bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span style="margin-left:8px">localhost/illuminos — 1440 px</span></div>
+        <div class="screen">
+            <iframe src="../index.php" title="Главная страница — десктоп" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <h2>2. Планшет — 768 × 1024</h2>
+    <p class="small">Планшетная версия: двухколоночная сетка, укрупнённые элементы, меню в бургере.</p>
+    <div class="device tablet" data-device data-width="768" data-height="1024">
+        <div class="device__bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span style="margin-left:8px">768 px</span></div>
+        <div class="screen">
+            <iframe src="../index.php" title="Главная страница — планшет" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <h2>3. Мобильный — 390 × 844</h2>
+    <div class="duo">
+        <div>
+            <p class="small">Главная: поиск на отдельной строке, карточки 46 % ширины, категории 2×4.</p>
+            <div class="device" data-device data-width="390" data-height="844">
+                <div class="device__bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    <span style="margin-left:8px">390 px</span></div>
+                <div class="screen">
+                    <iframe src="../index.php" title="Главная страница — мобильный" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p class="small">Типовая страница тайтла: постер, описание, оценки, трейлер, сезоны.</p>
+            <div class="device" data-device data-width="390" data-height="844">
+                <div class="device__bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                    <span style="margin-left:8px">390 px · тайтл</span></div>
+                <div class="screen">
+                    <iframe src="../title.php?slug=igra-prestolov" title="Страница сериала — мобильный" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2>4. Типовая страница тайтла — десктоп</h2>
+    <div class="device" data-device data-width="1440" data-height="900">
+        <div class="device__bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <span style="margin-left:8px">Страница сериала «Игра престолов» — 1440 px</span></div>
+        <div class="screen">
+            <iframe src="../title.php?slug=igra-prestolov" title="Страница сериала — десктоп" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div class="notes">
+        <div class="note"><b>Единая сетка</b><span>Контент 1280 px, поля 24 px, шаг 4 px — все блоки выровнены по одной сетке.</span></div>
+        <div class="note"><b>Иерархия</b><span>Постер и кнопка «Смотреть» — главный акцент, остальное поддерживает решение о просмотре.</span></div>
+        <div class="note"><b>Воздух</b><span>Между секциями 56 px, внутри карточек 18–22 px: ничего не «слипается».</span></div>
+        <div class="note"><b>Гармония цвета</b><span>Тёмный фон + золотой акцент: постеры не теряются, интерфейс не перегружен.</span></div>
+        <div class="note"><b>Адаптив</b><span>Три контрольные точки: 576 / 992 / 1180 px (мобильные, планшет, десктоп). Проверено в браузере.</span></div>
+        <div class="note"><b>Доступность</b><span>Контраст текста AAA, фокус-обводки, aria-подписи у кнопок-иконок.</span></div>
+    </div>
+
+    <h2>5. Соответствие макета техническому заданию</h2>
+    <table>
+        <thead><tr><th>Требование ТЗ</th><th>Реализация в макете</th></tr></thead>
+        <tbody>
+            <tr><td>Топ новинки и популярные фильмы/сериалы</td><td>Блоки «Новинки» и «Популярное» на главной</td></tr>
+            <tr><td>Категории контента</td><td>8 плиток-жанров с иконками и счётчиками</td></tr>
+            <tr><td>Персональные рекомендации</td><td>Секция «Рекомендуем вам» над промо-баннером</td></tr>
+            <tr><td>Поиск по фильмам и сериалам</td><td>Живой поиск в шапке + страница каталога с фильтрами</td></tr>
+            <tr><td>Страница фильма: описание, оценки, актёры, трейлер, похожие</td><td>Типовая страница тайтла, блоки 1–8 прототипа</td></tr>
+            <tr><td>Страница сериала: сезоны и эпизоды</td><td>Аккордеон «Сезоны и серии» на странице сериала</td></tr>
+            <tr><td>Личный кабинет, история, избранное</td><td>Кабинет с вкладками и статистикой</td></tr>
+            <tr><td>Тарифы и оплата</td><td>Страница тарифов и оформление оплаты с промокодом</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    /* Подгоняем макет под ширину рамки: масштабируем iframe как картинку */
+    function fitDevices() {
+        document.querySelectorAll('[data-device]').forEach((device) => {
+            const width = Number(device.dataset.width);
+            const height = Number(device.dataset.height);
+            const screen = device.querySelector('.screen');
+            const frame = device.querySelector('iframe');
+            if (!screen || !frame) return;
+
+            const scale = screen.clientWidth / width;
+            frame.style.width = width + 'px';
+            frame.style.height = height + 'px';
+            frame.style.transform = `scale(${scale})`;
+            screen.style.height = Math.round(height * scale) + 'px';
+        });
+    }
+
+    window.addEventListener('load', fitDevices);
+    window.addEventListener('resize', fitDevices);
+    document.addEventListener('DOMContentLoaded', fitDevices);
+</script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Illuminos — цветовая палитра и дизайн-система</title>
+<style>
+    /* Документ дизайн-системы: стили изолированы и не конфликтуют с сайтом */
+    :root {
+        --bg: #0B0B0F;
+        --surface: #15151D;
+        --surface-2: #1C1C24;
+        --text: #FFFFFF;
+        --muted: #6B7280;
+        --accent: #FF6B35;
+        --accent-2: #FFA07A;
+        --violet: #7c5cff;
+        --success: #3ddc97;
+        --danger: #ff5c5c;
+        --border: rgba(255, 255, 255, .1);
+    }
+    * { box-sizing: border-box; }
+    body {
+        margin: 0; padding: 48px 24px 80px;
+        background: var(--bg); color: var(--text);
+        font: 15px/1.65 "Segoe UI", Inter, Arial, sans-serif;
+    }
+    .wrap { max-width: 1080px; margin: 0 auto; }
+    h1 { font-size: 38px; letter-spacing: -.02em; margin: 0 0 8px; }
+    h2 { font-size: 24px; margin: 48px 0 8px; }
+    h3 { font-size: 17px; margin: 28px 0 10px; }
+    .lead { color: var(--muted); max-width: 720px; margin: 0 0 28px; }
+    .small { color: var(--muted); font-size: 13px; }
+    code { background: rgba(255,255,255,.07); padding: 2px 6px; border-radius: 5px; font-size: 13px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 14px; }
+    .swatch {
+        border: 1px solid var(--border); border-radius: 14px; overflow: hidden;
+        background: var(--surface);
+    }
+    .swatch__color { height: 96px; }
+    .swatch__body { padding: 12px 14px; }
+    .swatch__name { font-weight: 700; font-size: 14px; }
+    .swatch__values { color: var(--muted); font-size: 12px; margin-top: 4px; font-family: Consolas, monospace; }
+    .row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .pill {
+        display: inline-flex; align-items: center; gap: 8px;
+        padding: 9px 16px; border-radius: 999px; font-size: 14px; font-weight: 600;
+    }
+    .card {
+        padding: 20px; border: 1px solid var(--border); border-radius: 16px;
+        background: var(--surface);
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; margin-top: 12px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .06em; }
+    .type-sample { border-left: 3px solid var(--accent); padding-left: 16px; margin: 18px 0; }
+    .type-sample span { display: block; color: var(--muted); font-size: 12px; margin-bottom: 2px; }
+    .note { border-left: 3px solid var(--violet); background: rgba(124,92,255,.08); padding: 14px 18px; border-radius: 10px; color: #d9d5f5; }
+    a { color: var(--accent); }
+    .logo-line { display: flex; align-items: center; gap: 18px; margin-bottom: 24px; }
+    .logo-line img { height: 38px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+    <div class="logo-line">
+        <img src="../assets/img/logos/logo.svg" alt="Illuminos">
+        <span class="small">Дизайн-система · версия 1.0 · учебный проект ПМ.01</span>
+    </div>
+
+    <h1>Цветовая палитра Illuminos</h1>
+    <p class="lead">
+        Тёмная кинематографичная тема: глубокий фон, тёплый оранжевый акцент и спокойный
+        фиолетовый для второстепенных действий. Палитра подобрана так, чтобы постеры
+        фильмов оставались главным визуальным элементом, а интерфейс не конкурировал с ними.
+    </p>
+
+    <h2>1. Основные цвета</h2>
+    <div class="grid">
+        <div class="swatch">
+            <div class="swatch__color" style="background:#0B0B0F"></div>
+            <div class="swatch__body">
+                <div class="swatch__name">Фон — Ink</div>
+                <div class="swatch__values">#0B0B0F · rgb(11,11,15)</div>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch__color" style="background:#15151D"></div>
+            <div class="swatch__body">
+                <div class="swatch__name">Поверхность — Surface</div>
+                <div class="swatch__values">#15151D · rgb(21,21,29)</div>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch__color" style="background:#1C1C24"></div>
+            <div class="swatch__body">
+                <div class="swatch__name">Поверхность 2</div>
+                <div class="swatch__values">#1C1C24 · rgb(28,28,36)</div>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch__color" style="background:#FFFFFF"></div>
+            <div class="swatch__body">
+                <div class="swatch__name">Текст</div>
+                <div class="swatch__values">#FFFFFF · rgb(255,255,255)</div>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch__color" style="background:#6B7280"></div>
+            <div class="swatch__body">
+                <div class="swatch__name">Вторичный текст</div>
+                <div class="swatch__values">#6B7280 · rgb(107,114,128)</div>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch__color" style="background:linear-gradient(135deg,#FF6B35,#FFA07A)"></div>
+            <div class="swatch__body">
+                <div class="swatch__name">Акцент — Orange</div>
+                <div class="swatch__values">#FF6B35 → #FFA07A</div>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch__color" style="background:#7c5cff"></div>
+            <div class="swatch__body">
+                <div class="swatch__name">Служебный — Violet</div>
+                <div class="swatch__values">#7C5CFF · rgb(124,92,255)</div>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch__color" style="background:#3ddc97"></div>
+            <div class="swatch__body">
+                <div class="swatch__name">Успех</div>
+                <div class="swatch__values">#3DDC97 · rgb(61,220,151)</div>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch__color" style="background:#ff5c5c"></div>
+            <div class="swatch__body">
+                <div class="swatch__name">Ошибка</div>
+                <div class="swatch__values">#FF5C5C · rgb(255,92,92)</div>
+            </div>
+        </div>
+    </div>
+
+    <h2>2. Назначение цветов</h2>
+    <table>
+        <thead><tr><th>Роль</th><th>Цвет</th><th>Где используется</th></tr></thead>
+        <tbody>
+            <tr><td>Основной фон</td><td><code>#0B0B0F</code></td><td>Все страницы сайта, подвал, модальные окна</td></tr>
+            <tr><td>Карточки и панели</td><td><code>#15151D</code></td><td>Формы, таблицы, карточки тарифов, фильтры</td></tr>
+            <tr><td>Приподнятые элементы</td><td><code>#1C1C24</code></td><td>Выпадающее меню, hover-состояния, тосты</td></tr>
+            <tr><td>Главный акцент</td><td><code>#FF6B35</code></td><td>Кнопки «Смотреть», активные фильтры, рейтинг, ссылки</td></tr>
+            <tr><td>Второй акцент</td><td><code>#7C5CFF</code></td><td>Промо-блоки, информационные сообщения, роль администратора</td></tr>
+            <tr><td>Текст</td><td><code>#FFFFFF</code></td><td>Заголовки и основной текст</td></tr>
+            <tr><td>Вторичный текст</td><td><code>#6B7280</code></td><td>Подписи, метаданные, подсказки</td></tr>
+            <tr><td>Границы</td><td><code>rgba(255,255,255,.08)</code></td><td>Разделители, обводки полей и таблиц</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Контраст</h3>
+    <p class="small">
+        Текст <code>#FFFFFF</code> на фоне <code>#0B0B0F</code> — контраст 19.6:1 (AAA).
+        Вторичный текст <code>#6B7280</code> на фоне <code>#15151D</code> — 3.8:1 (AA для крупного текста).
+        Тёмный текст <code>#191300</code> на оранжевой кнопке <code>#FF6B35</code> — 6.5:1 (AA).
+    </p>
+
+    <h2>3. Типографика</h2>
+    <div class="type-sample"><span>H1 · 42–64 px · 800</span>
+        <div style="font-size:40px;font-weight:800;letter-spacing:-.02em">Кино начинается здесь</div>
+    </div>
+    <div class="type-sample"><span>H2 · 24–32 px · 800</span>
+        <div style="font-size:28px;font-weight:800">Новинки и популярное</div>
+    </div>
+    <div class="type-sample"><span>H3 · 18–20 px · 700</span>
+        <div style="font-size:19px;font-weight:700">Подписка «Год»</div>
+    </div>
+    <div class="type-sample"><span>Основной текст · 15–16 px · 400</span>
+        <div>История отношений юноши и девушки из разных социальных слоёв, живших в Южной Каролине.</div>
+    </div>
+    <div class="type-sample"><span>Подпись · 12–13 px · 400</span>
+        <div class="small">Сериал · 2011 · ★ 9.5 · 18+</div>
+    </div>
+    <p class="small">Гарнитура: <b>Segoe UI</b> (системный шрифт Windows) с fallback на Inter, Helvetica Neue, Arial.
+       Системный шрифт выбран для мгновенной загрузки и стабильной кириллицы.</p>
+
+    <h2>4. Компоненты</h2>
+
+    <h3>Кнопки</h3>
+    <div class="row">
+        <button class="pill" style="background:linear-gradient(135deg,#FF6B35,#FFA07A);color:#191300;border:0">▶ Смотреть</button>
+        <button class="pill" style="background:rgba(255,255,255,.08);color:#FFFFFF;border:1px solid rgba(255,255,255,.16)">Трейлер</button>
+        <button class="pill" style="background:transparent;color:#FFFFFF;border:1px solid rgba(255,255,255,.16)">♥ В избранное</button>
+        <button class="pill" style="background:rgba(255,92,92,.14);color:#ff8b8b;border:1px solid rgba(255,92,92,.35)">Удалить</button>
+    </div>
+
+    <h3>Плашки и статусы</h3>
+    <div class="row">
+        <span class="pill" style="background:#FF6B35;color:#191300;font-size:11px;letter-spacing:.06em">НОВОЕ</span>
+        <span class="pill" style="background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.16);font-size:11px">ТОП-10</span>
+        <span class="pill" style="background:rgba(255,107,53,.16);color:#FFA07A;font-size:12px">★ 9.5</span>
+        <span class="pill" style="background:rgba(61,220,151,.12);color:#7ef0bd;font-size:12px">Оплачен</span>
+        <span class="pill" style="background:rgba(255,107,53,.12);color:#FFA07A;font-size:12px">Ожидает</span>
+        <span class="pill" style="background:rgba(255,92,92,.12);color:#ff9d9d;font-size:12px">Отменён</span>
+    </div>
+
+    <h3>Радиусы, отступы, тени</h3>
+    <div class="row">
+        <div class="card" style="border-radius:10px">radius-sm · 10 px</div>
+        <div class="card" style="border-radius:16px">radius · 16 px</div>
+        <div class="card" style="border-radius:24px">radius-lg · 24 px</div>
+        <div class="card" style="border-radius:999px">pill · 999 px</div>
+        <div class="card" style="box-shadow:0 24px 60px rgba(0,0,0,.45)">тень карточек</div>
+    </div>
+    <p class="small" style="margin-top:12px">
+        Шаг сетки: 4 px. Базовые отступы: 8 / 12 / 16 / 24 / 32 / 48 / 64.
+        Максимальная ширина контента — 1280 px, боковые поля 24 px (16 px на мобильных).
+    </p>
+
+    <h2>5. Правила использования</h2>
+    <div class="note">
+        <p style="margin:0 0 8px"><b>Акцентный цвет — только для действий.</b> Оранжевый применяется к главной кнопке
+        на экране, активному фильтру и рейтингу — не более 10% площади.</p>
+        <p style="margin:0 0 8px"><b>Постеры — главные.</b> Интерфейс не спорит с изображениями: фон тёмный,
+        подписи вторичные.</p>
+        <p style="margin:0"><b>Состояния обязательны.</b> У каждой интерактивной кнопки есть hover, focus-visible
+        и disabled. Ошибки — красным, успех — зелёным, подсказки — серым.</p>
+    </div>
+
+    <h2>6. Файл токенов</h2>
+    <p class="small">Все значения хранятся в CSS-переменных в начале файла
+        <code>assets/css/style.css</code> — палитра меняется в одном месте.</p>
+    <pre style="background:#101014;border:1px solid var(--border);border-radius:12px;padding:18px;overflow:auto;font-size:13px;color:#D1D5DB">:root {
+    --bg: #0B0B0F;          /* фон страницы */
+    --surface: #15151D;     /* карточки, формы */
+    --surface-2: #1C1C24;   /* меню, hover */
+    --text: #FFFFFF;        /* основной текст */
+    --muted: #6B7280;       /* вторичный текст */
+    --accent: #FF6B35;      /* главный акцент */
+    --accent-2: #FFA07A;    /* градиент кнопок */
+    --violet: #7c5cff;      /* служебный акцент */
+    --success: #3ddc97;
+    --danger: #ff5c5c;
+    --radius-sm: 10px; --radius: 16px; --radius-lg: 24px;
+}</pre>
+
+    <p class="small" style="margin-top:40px">
+        ← <a href="../index.php">Вернуться на сайт</a> ·
+        <a href="prototype.html">Прототипы</a> ·
+        <a href="mockup.html">Дизайн-макеты</a>
+    </p>
+</div>
+</body>
+</html>
